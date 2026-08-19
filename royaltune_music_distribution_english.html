@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RoyalTune Distribution</title>
+<meta name="description" content="Professional music distribution platform demo with artist dashboard and 75% royalty model.">
+<style>
+:root{--bg:#07111f;--panel:#101c2e;--panel2:#14233a;--text:#f5f7fb;--muted:#9eacc2;--line:#263752;--a:#7c5cff;--b:#00d4a8;--warn:#ffbd4a;--bad:#ff5876}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(145deg,#07111f,#0b1424);color:var(--text);font:15px/1.6 Arial,Helvetica,sans-serif}
+nav{position:sticky;top:0;z-index:20;background:#081322e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:13px 5%}
+.brand{font-size:21px;font-weight:900}.brand i{font-style:normal;color:var(--b)}nav button{background:none;border:0;color:#dfe7f6;cursor:pointer;padding:9px 11px}.navlinks{display:flex;gap:2px}.primary{background:var(--a)!important;color:#fff!important;border-radius:10px!important;font-weight:800}
+section{max-width:1180px;margin:auto;padding:55px 5%}.hero{max-width:none;text-align:center;padding:90px 5% 70px;background:radial-gradient(circle at 50% 0,#31236d 0,#0b1424 45%,#07111f 100%)}
+.pill{display:inline-block;border:1px solid #493f83;background:#171d3c;color:#dcd6ff;padding:5px 11px;border-radius:99px;font-size:12px;font-weight:800}
+h1{font-size:clamp(40px,7vw,76px);line-height:1.05;margin:16px auto;max-width:900px}h2{font-size:30px;margin-top:0}.lead{max-width:760px;margin:0 auto 28px;color:#bdc8db;font-size:18px}
+.btn{border:0;border-radius:11px;padding:12px 18px;font-weight:800;cursor:pointer;background:var(--a);color:white;margin:4px}.btn.green{background:var(--b);color:#031712}.btn.ghost{background:transparent;border:1px solid #3b4c6c}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.card{background:linear-gradient(180deg,#122038,#0f1a2c);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 16px 40px #0004}.number{font-size:31px;font-weight:900}.muted{color:var(--muted)}
+.hidden{display:none!important}.form{display:grid;gap:15px}.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}@media(max-width:680px){.two{grid-template-columns:1fr}.navlinks{display:none}nav{padding:12px 4%}}
+label{font-weight:800;display:block;margin-bottom:6px}input,select,textarea{width:100%;border:1px solid #354762;background:#0a1424;color:#fff;border-radius:10px;padding:12px;outline:none}textarea{min-height:110px}.upload{border:2px dashed #3b4d6e;border-radius:14px;padding:25px;text-align:center}.cover{display:none;width:120px;height:120px;object-fit:cover;border-radius:14px;margin:12px auto}.notice{background:#211d3d;border:1px solid #403a70;border-radius:12px;padding:13px;margin-bottom:18px;color:#dcd8fa}.success{background:#0e302b;border:1px solid #1f6a5c}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:650px}.table th,.table td{padding:12px;border-bottom:1px solid var(--line);text-align:left}.badge{display:inline-block;padding:4px 9px;border-radius:99px;background:#17372f;color:#63f0cc;font-size:12px;font-weight:800}.badge.pending{background:#3a2d16;color:#ffd178}.badge.rejected{background:#3b1823;color:#ff8fa4}.progress{height:9px;border-radius:99px;background:#263650;overflow:hidden}.progress span{display:block;width:75%;height:100%;background:linear-gradient(90deg,var(--a),var(--b))}
+footer{text-align:center;padding:35px;color:#75839b;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<nav>
+ <div class="brand">Royal<span style="color:#00d4a8">Tune</span> Distribution</div>
+ <div class="navlinks">
+  <button onclick="page('home')">Home</button><button onclick="page('release')">Submit Release</button><button onclick="page('dashboard')">Artist Dashboard</button><button onclick="page('admin')">Admin</button>
+ </div>
+ <button class="btn primary" onclick="page('release')">Start Release</button>
+</nav>
+
+<div id="home">
+<section class="hero">
+ <span class="pill">ARTIST-FIRST • 75% ROYALTY MODEL</span>
+ <h1>Release Your Music.<br>Reach the World.</h1>
+ <p class="lead">A professional English music distribution platform for artists and labels. Submit your release, manage metadata, track status and view your royalty share.</p>
+ <button class="btn green" onclick="page('release')">Submit a Song</button>
+ <button class="btn ghost" onclick="page('dashboard')">Open Dashboard</button>
+</section>
+<section>
+ <div class="grid">
+  <div class="card"><div class="number">75%</div><div class="muted">Artist royalty share</div></div>
+  <div class="card"><div class="number">25%</div><div class="muted">Platform share</div></div>
+  <div class="card"><div class="number">24/7</div><div class="muted">Release submissions</div></div>
+  <div class="card"><div class="number">Global</div><div class="muted">Distribution-ready workflow</div></div>
+ </div>
+</section>
+<section>
+ <h2>How it works</h2>
+ <div class="grid">
+  <div class="card"><b>01 — Upload</b><p class="muted">Upload your master audio and cover artwork.</p></div>
+  <div class="card"><b>02 — Metadata</b><p class="muted">Add title, artist, credits, genre and release date.</p></div>
+  <div class="card"><b>03 — Review</b><p class="muted">Admin checks rights, artwork and metadata.</p></div>
+  <div class="card"><b>04 — Distribution</b><p class="muted">Approved releases can be delivered through a connected distributor.</p></div>
+ </div>
+</section>
+</div>
+
+<section id="release" class="hidden">
+ <div class="card">
+  <h2>Submit a New Release</h2>
+  <div class="notice">Demo mode: this browser app stores release records locally. Real DSP delivery requires a secure backend and an authorized distributor/API connection.</div>
+  <form id="form" class="form">
+   <div class="two">
+    <div><label>Artist / Singer *</label><input id="artist" required></div>
+    <div><label>Song Title *</label><input id="title" required></div>
+   </div>
+   <div class="two">
+    <div><label>Release Type</label><select id="type"><option>Single</option><option>EP</option><option>Album</option></select></div>
+    <div><label>Genre</label><select id="genre"><option>Sindhi</option><option>Pop</option><option>Folk</option><option>Romantic</option><option>Hip-Hop</option><option>Other</option></select></div>
+   </div>
+   <div class="two">
+    <div><label>Language</label><input id="language" value="Sindhi"></div>
+    <div><label>Release Date *</label><input id="date" type="date" required></div>
+   </div>
+   <div class="two">
+    <div><label>Songwriter / Lyrics</label><input id="writer"></div>
+    <div><label>Composer / Producer</label><input id="producer"></div>
+   </div>
+   <div><label>Audio Master *</label><div class="upload"><input id="audio" type="file" accept="audio/*" required><p class="muted">Recommended: high-quality lossless master according to your distributor's specifications.</p></div></div>
+   <div><label>Cover Artwork *</label><div class="upload"><input id="cover" type="file" accept="image/*" required><img id="preview" class="cover"></div></div>
+   <div><label>Copyright / Rights Confirmation *</label><textarea id="rights" required placeholder="Confirm that you own or control the necessary rights to this recording and artwork."></textarea></div>
+   <label><input id="agree" type="checkbox" required style="width:auto"> I confirm that the information is accurate and that I have the required rights.</label>
+   <button class="btn green" type="submit">Submit Release for Review</button>
+  </form>
+ </div>
+</section>
+
+<section id="dashboard" class="hidden">
+ <div class="grid">
+  <div class="card"><div class="muted">Total Releases</div><div class="number" id="count">0</div></div>
+  <div class="card"><div class="muted">Artist Share</div><div class="number">75%</div><div class="progress"><span></span></div></div>
+  <div class="card"><div class="muted">Platform Share</div><div class="number">25%</div></div>
+  <div class="card"><div class="muted">Estimated Earnings</div><div class="number" id="earn">$0.00</div></div>
+ </div>
+ <div style="height:18px"></div>
+ <div class="card"><h2>My Releases</h2><div id="empty" class="muted">No releases submitted yet.</div>
+  <div class="tablewrap"><table class="table hidden" id="tbl"><thead><tr><th>Title</th><th>Artist</th><th>Release Date</th><th>Status</th><th>Royalty</th></tr></thead><tbody></tbody></table></div>
+ </div>
+</section>
+
+<section id="admin" class="hidden">
+ <div class="card"><h2>Admin Dashboard</h2><p class="muted">Demo admin interface. Production use requires secure server-side authentication.</p><div id="adminList"></div></div>
+</section>
+
+<footer>© 2026 RoyalTune Distribution • Artist 75% / Platform 25%</footer>
+
+<script>
+const KEY="royaltune_releases";
+const data=()=>JSON.parse(localStorage.getItem(KEY)||"[]");
+const save=d=>localStorage.setItem(KEY,JSON.stringify(d));
+function page(id){
+ ["home","release","dashboard","admin"].forEach(x=>document.getElementById(x).classList.add("hidden"));
+ document.getElementById(id).classList.remove("hidden");
+ if(id==="dashboard")renderDashboard();
+ if(id==="admin")renderAdmin();
+ scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("cover").addEventListener("change",e=>{
+ const f=e.target.files[0];if(!f)return;
+ const p=document.getElementById("preview");p.src=URL.createObjectURL(f);p.style.display="block";
+});
+document.getElementById("form").addEventListener("submit",e=>{
+ e.preventDefault();
+ const d=data();
+ d.push({id:Date.now(),artist:artist.value,title:title.value,type:type.value,genre:genre.value,language:language.value,date:date.value,writer:writer.value,producer:producer.value,status:"Pending Review",royalty:75});
+ save(d);alert("Release submitted successfully for review.");e.target.reset();document.getElementById("preview").style.display="none";page("dashboard");
+});
+function renderDashboard(){
+ const d=data();count.textContent=d.length;empty.classList.toggle("hidden",d.length>0);tbl.classList.toggle("hidden",!d.length);
+ document.querySelector("#tbl tbody").innerHTML=d.map(r=>`<tr><td>${safe(r.title)}</td><td>${safe(r.artist)}</td><td>${r.date}</td><td><span class="badge ${r.status==="Rejected"?"rejected":r.status==="Pending Review"?"pending":""}">${r.status}</span></td><td>${r.royalty}%</td></tr>`).join("");
+}
+function renderAdmin(){
+ const d=data(),box=document.getElementById("adminList");
+ box.innerHTML=d.length?d.map(r=>`<div class="card" style="margin:12px 0"><b>${safe(r.title)}</b> — ${safe(r.artist)}<br><span class="muted">${r.date} • ${r.genre}</span><br><button class="btn green" onclick="setStatus(${r.id},'Approved')">Approve</button><button class="btn" onclick="setStatus(${r.id},'Rejected')">Reject</button></div>`).join(""):"No submissions.";
+}
+function setStatus(id,status){save(data().map(r=>r.id===id?({...r,status}):r));renderAdmin();}
+function safe(v){return String(v||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
+</script>
+</body>
+</html>
